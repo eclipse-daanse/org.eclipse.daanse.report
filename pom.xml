@@ -41,6 +41,8 @@
     <module>pdf.assertion.api</module>
     <module>pdf.assertion.core</module>
     <module>pdf.assertion.assertj</module>
+    <module>pdf.template.api</module>
+    <module>pdf.template.emf</module>
   </modules>
 
 </project>
