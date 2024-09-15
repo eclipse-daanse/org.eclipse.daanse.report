@@ -12,7 +12,18 @@
 */
 package org.eclipse.daanse.report.pdf.assertion.api.model;
 
-public interface PDFPageArea {
-    PDFPageArea getPageArea(PDFPoint upperLeft, PDFPoint lowerRight);
+public interface PDFRectangle {
+
+    PDFPoint getUpperLeft();
+
+    PDFPoint getLowerRight();
+
+    float getWidth();
+
+    float getHeight();
+
+    PDFRectangle subRectangle(PDFPoint innerUpperLeft, PDFPoint innerLowerRight);
+
+    PDFRectangle subRectangle(PDFPoint innerUpperLeft, float width, float hight);
 
 }

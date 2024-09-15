@@ -12,6 +12,7 @@
 */
 package org.eclipse.daanse.report.pdf.assertion.api.model;
 
-public interface PDFPage {
+public interface PDFPage extends PDFPageArea {
+
 
 }

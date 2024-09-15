@@ -12,23 +12,22 @@
 */
 package org.eclipse.daanse.report.pdf.assertion.core;
 
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.eclipse.daanse.report.pdf.assertion.api.model.PDFPage;
-import org.eclipse.daanse.report.pdf.assertion.api.model.PDFPageArea;
 import org.eclipse.daanse.report.pdf.assertion.api.model.PDFPoint;
 
-public class PDFPageImpl extends PDFPageAreaImpl implements PDFPage {
+public record PDFPointImpl(float x, float y) implements PDFPoint {
 
-    public PDFPageImpl(PDPage page) {
-        super(page);
+    public PDFPointImpl() {
+        this(0, 0);
     }
 
     @Override
-    public PDFPageArea getPageArea(PDFPoint upperLeft, PDFPoint lowerRight) {
-        // TODO Auto-generated method stub
-        return null;
+    public float getX() {
+        return x();
     }
 
-
+    @Override
+    public float getY() {
+        return y();
+    }
 
 }
