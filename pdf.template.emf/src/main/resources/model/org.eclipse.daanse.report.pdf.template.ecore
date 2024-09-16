@@ -17,6 +17,101 @@
     <details key="qualified" value="true"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Report">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotation" eType="#//Rotation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="column" eType="#//ReportColumn"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="margin" eType="#//Margin"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styles" upperBound="-1"
+        eType="#//Style"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundSection" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pageHeaderSection" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columnHeaderSection" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSections" upperBound="-1"
+        eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columnFooterSection" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pageFooterSection" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="noDataSection" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataFields" upperBound="-1"
+        eType="#//DataField"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReportColumn">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="printOrientation" eType="#//ColumnPrintOrientation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="printDirection" eType="#//ColumnPrintDirection"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spacing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Section">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="printWhen" eType="#//Expression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="splitType" eType="#//SectionSplitType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SectionSplitType">
+    <eLiterals name="ON_CONTENT_STRETCH"/>
+    <eLiterals name="PREVENT_SOFT">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Prevents split as long as this avoids a loop"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="PREVENT_HARD">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Prevents split. hard. Will throw an Exception when it is would be forced to break"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="AFTER_FORST_ELEMENT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anchorType" eType="#//ElementAnchorType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stretchType" eType="#//ElementStretchType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styles" upperBound="-1"
+        eType="#//Style"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ColumnPrintOrientation">
+    <eLiterals name="VERTICAL" literal="Vertical"/>
+    <eLiterals name="HORIZONTAL" literal="Horizontal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ColumnPrintDirection">
+    <eLiterals name="LEFT_TO_RIGHT" literal="LeftToRight"/>
+    <eLiterals name="RIGHT_TO_LEFT" literal="RightToLeft"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Rotation">
+    <eLiterals name="ROTATION_0"/>
+    <eLiterals name="ROTATION_90"/>
+    <eLiterals name="ROTATION_180"/>
+    <eLiterals name="ROTATION_270"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Margin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="left" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="right" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="top" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bottom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Style">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ElementAnchorType">
+    <eLiterals name="FIXED_TOP"/>
+    <eLiterals name="FIXED_BUTTOM"/>
+    <eLiterals name="FLOATING"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ElementStretchType">
+    <eLiterals name="FIXED_TOP"/>
+    <eLiterals name="SECTION_HEIGHT" literal="SECTION_HEIGHT"/>
+    <eLiterals name="SECTION_BOTTOM" literal="SECTION_BOTTOM"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
