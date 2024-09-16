@@ -20,8 +20,87 @@
   <foreignModel>org.eclipse.daanse.report.pdf.template.ecore</foreignModel>
   <genPackages prefix="Pdftemplate" basePackage="org.eclipse.daanse.report.pdf.template.emf"
       resource="XML" disposableProviderFactory="true" ecorePackage="org.eclipse.daanse.report.pdf.template.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="org.eclipse.daanse.report.pdf.template.ecore#//SectionSplitType">
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//SectionSplitType/ON_CONTENT_STRETCH"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//SectionSplitType/PREVENT_SOFT"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//SectionSplitType/PREVENT_HARD"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//SectionSplitType/AFTER_FORST_ELEMENT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="org.eclipse.daanse.report.pdf.template.ecore#//ColumnPrintOrientation">
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ColumnPrintOrientation/VERTICAL"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ColumnPrintOrientation/HORIZONTAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="org.eclipse.daanse.report.pdf.template.ecore#//ColumnPrintDirection">
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ColumnPrintDirection/LEFT_TO_RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ColumnPrintDirection/RIGHT_TO_LEFT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="org.eclipse.daanse.report.pdf.template.ecore#//Rotation">
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//Rotation/ROTATION_0"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//Rotation/ROTATION_90"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//Rotation/ROTATION_180"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//Rotation/ROTATION_270"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="org.eclipse.daanse.report.pdf.template.ecore#//ElementAnchorType">
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ElementAnchorType/FIXED_TOP"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ElementAnchorType/FIXED_BUTTOM"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ElementAnchorType/FLOATING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="org.eclipse.daanse.report.pdf.template.ecore#//ElementStretchType">
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ElementStretchType/FIXED_TOP"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ElementStretchType/SECTION_HEIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="org.eclipse.daanse.report.pdf.template.ecore#//ElementStretchType/SECTION_BOTTOM"/>
+    </genEnums>
     <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//Report">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Report/foo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Report/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Report/rotation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Report/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Report/height"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/margin"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/styles"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/backgroundSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/pageHeaderSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/columnHeaderSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/dataSections"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/columnFooterSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/pageFooterSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/noDataSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Report/dataFields"/>
+    </genClasses>
+    <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//ReportColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//ReportColumn/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//ReportColumn/printOrientation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//ReportColumn/printDirection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//ReportColumn/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//ReportColumn/spacing"/>
+    </genClasses>
+    <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Section/height"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Section/printWhen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Section/splitType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Section/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//Expression"/>
+    <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Element/anchorType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Element/stretchType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Element/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Element/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Element/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Element/height"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference org.eclipse.daanse.report.pdf.template.ecore#//Element/styles"/>
+    </genClasses>
+    <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//Margin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Margin/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Margin/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Margin/top"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Margin/bottom"/>
+    </genClasses>
+    <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//Style">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//Style/name"/>
+    </genClasses>
+    <genClasses ecoreClass="org.eclipse.daanse.report.pdf.template.ecore#//DataField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute org.eclipse.daanse.report.pdf.template.ecore#//DataField/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
